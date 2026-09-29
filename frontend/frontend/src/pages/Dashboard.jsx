@@ -4,6 +4,21 @@ import Navbar from "../components/Navbar";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
 } from "recharts";
+import { generatePDF } from "../utils/generatePDF";
+// ... other imports
+
+// Inside component:
+const [courses, setCourses] = useState([]);
+
+useEffect(() => {
+  API.get("/courses/gpa").then((res) => setGpaData(res.data));
+  API.get("/courses").then((res) => setCourses(res.data));
+}, []);
+
+const handleExport = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  generatePDF(user, gpaData, courses);
+};
 
 export default function Dashboard() {
   const [gpaData, setGpaData] = useState({ cgpa: 0, totalCredits: 0, semesters: [] });
@@ -14,6 +29,7 @@ export default function Dashboard() {
 
   const chartData = gpaData.semesters.map((s) => ({
     name: s.semester,
+
     GPA: parseFloat(s.gpa),
   }));
 
@@ -61,3 +77,11 @@ function Card({ title, value }) {
     </div>
   );
 }
+
+
+<div className="flex justify-between items-center mb-6">
+  <h1 className="text-3xl font-bold text-ocean-800">Dashboard</h1>
+  <button onClick={handleExport} className="btn-ocean">
+    📄 Export PDF
+  </button>
+</div>
