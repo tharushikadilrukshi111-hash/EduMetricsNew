@@ -6,6 +6,12 @@ import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
 import Analytics from "./pages/Analytics";
 import Simulator from "./pages/Simulator";
+import Profile from "./pages/Profile";
+import TargetGPA from "./pages/TargetGPA";
+<Route path="/target" element={<PrivateRoute><TargetGPA /></PrivateRoute>} />
+
+<Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+
 // ... inside <Routes>
 <Route path="/simulator" element={<PrivateRoute><Simulator /></PrivateRoute>} />
 
