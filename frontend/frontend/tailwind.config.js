@@ -16,6 +16,29 @@ export default {
           900: "#0c4a6e",
         },
       },
+      boxShadow: {
+        ocean: "0 10px 25px -5px rgba(14, 165, 233, 0.3)",
+        "ocean-lg": "0 20px 40px -10px rgba(14, 165, 233, 0.4)",
+      },
+      animation: {
+        "fade-in": "fadeIn 0.4s ease-in-out",
+        "slide-up": "slideUp 0.5s ease-out",
+        float: "float 3s ease-in-out infinite",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        slideUp: {
+          "0%": { opacity: 0, transform: "translateY(20px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+      },
     },
   },
   plugins: [],
