@@ -5,6 +5,9 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
 import Analytics from "./pages/Analytics";
+import Simulator from "./pages/Simulator";
+// ... inside <Routes>
+<Route path="/simulator" element={<PrivateRoute><Simulator /></PrivateRoute>} />
 
 function PrivateRoute({ children }) {
   const { user } = useAuth();
@@ -26,3 +29,4 @@ export default function App() {
     </AuthProvider>
   );
 }
+

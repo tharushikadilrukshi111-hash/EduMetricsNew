@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+<Link to="/simulator">Simulator</Link>
+
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
